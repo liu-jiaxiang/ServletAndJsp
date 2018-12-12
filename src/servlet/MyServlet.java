@@ -10,7 +10,7 @@ public class MyServlet implements Servlet {
     private transient ServletConfig servletConfig;
 
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
+    public void init(ServletConfig servletConfig) {
         this.servletConfig = servletConfig;
     }
 
@@ -25,7 +25,7 @@ public class MyServlet implements Servlet {
     }
 
     @Override
-    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+    public void service(ServletRequest request, ServletResponse response) throws IOException {
         String servletName = servletConfig.getServletName();
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
