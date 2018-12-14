@@ -18,12 +18,14 @@
 *.zip
 *.tar.gz
 *.rar
+*.bak
 
 .idea
 ServletAndJsp.iml
 out
 web
-/bin/
+bin
 .classpath
 .project
 WebRoot
+.settings
