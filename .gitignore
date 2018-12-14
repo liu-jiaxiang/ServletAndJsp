@@ -18,6 +18,7 @@
 *.zip
 *.tar.gz
 *.rar
+*.bak
 
 .idea
 ServletAndJsp.iml
