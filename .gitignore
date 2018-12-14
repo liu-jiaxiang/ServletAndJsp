@@ -24,8 +24,3 @@
 ServletAndJsp.iml
 out
 web
-bin
-.classpath
-.project
-WebRoot
-.settings
