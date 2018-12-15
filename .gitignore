@@ -21,6 +21,11 @@
 *.bak
 
 .idea
+.classpath
+.project
+.settings
+WebRoot
 ServletAndJsp.iml
 out
 web
+/bin/
