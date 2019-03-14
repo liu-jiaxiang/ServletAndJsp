@@ -16,7 +16,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter(filterName = "LoggingFilter", urlPatterns = {"/*"},
+@WebFilter(filterName = "LoggingFilter", urlPatterns = {"/m*"},
 		initParams = {
 				@WebInitParam(name = "logFileName", value = "log.txt"),
 				@WebInitParam(name = "prefix", value = "URI: ")
@@ -41,6 +41,7 @@ public class LoggingFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) arg0;
 		logger.println(new Date() + "" + prefix + request.getRequestURI());
 		logger.flush();
+		System.out.println(request.getRequestURI());
 		arg2.doFilter(arg0, arg1);
 	}
 	@Override
@@ -48,7 +49,9 @@ public class LoggingFilter implements Filter {
 		prefix = filterConfig.getInitParameter("prefix");
 		String logFileName = filterConfig.getInitParameter("logFileName");
 		String path = filterConfig.getServletContext().getRealPath("/");
+		System.out.println("RealPath: " + path);
 		System.out.println("logFileName: " + logFileName);
+		System.nanoTime();
 		try {
 			logger = new PrintWriter(new File(path, logFileName));
 		} catch (FileNotFoundException e) {
